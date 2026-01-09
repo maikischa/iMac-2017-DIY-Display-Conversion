@@ -1,0 +1,32 @@
+0 ICSigma100In1 O_C0_A0_P1_out Link32 O_C0_A0_P2_out Link33 O_C0_A0_P5_out Link20 O_C0_A0_P6_out Link21
+1 sin_lookupAlg19401 O_C214_A0_P1_out Link36
+2 Gain1940AlgNS5 I_C39_A0_P1_in Link20 O_C39_A0_P2_out Link16
+3 Gain1940AlgNS6 I_C39_A1_P1_in Link21 O_C39_A1_P2_out Link17
+4 DCBlockAlgDoublePrec5 I_C19_A0_P1_in Link32 O_C19_A0_P2_out Link34
+5 DCBlockAlgDoublePrec6 I_C19_A1_P1_in Link33 O_C19_A1_P2_out Link35
+6 Gain1940AlgNS7 I_C44_A0_P1_in Link36 O_C44_A0_P2_out Link18
+7 Gain1940AlgNS8 I_C44_A1_P1_in Link36 O_C44_A1_P2_out Link19
+8 Gain1940AlgNS3 I_C29_A0_P1_in Link34 O_C29_A0_P2_out Link14
+9 Gain1940AlgNS4 I_C29_A1_P1_in Link35 O_C29_A1_P2_out Link15
+10 stereomux1940ns1 I_C86_A0_P3_in Link14 I_C86_A0_P4_in Link15 I_C86_A0_P5_in Link16 I_C86_A0_P6_in Link17 I_C86_A0_P7_in Link18 I_C86_A0_P8_in Link19 O_C86_A0_P1_out Link12 O_C86_A0_P2_out Link13
+11 Gain1940AlgNS1 I_C32_A0_P1_in Link12 O_C32_A0_P2_out Link24
+12 Gain1940AlgNS2 I_C32_A1_P1_in Link13 O_C32_A1_P2_out Link25
+13 EQ1940DualS1 I_C127_A0_P1_in Link24 I_C127_A0_P2_in Link25 O_C127_A0_P3_out Link27 O_C127_A0_P4_out Link26
+14 CrossoverFilter2WayAlgSP1 I_C207_A1_P1_in Link26 O_C207_A1_P2_out Link38 O_C207_A1_P3_out Link23
+15 CrossoverFilter2WayAlgDP1 I_C207_A0_P1_in Link27 O_C207_A0_P2_out Link37 O_C207_A0_P3_out Link22
+16 StdRMSCompressorAlg_2ndGen2 I_C165_A0_P1_in Link22 I_C165_A0_P2_in Link23 O_C165_A0_P3_out Link8 O_C165_A0_P4_out Link9
+17 MuteNoSlewAlg3 I_C92_A0_P1_in Link8 O_C92_A0_P2_out Link2
+18 MuteNoSlewAlg4 I_C93_A0_P1_in Link9 O_C93_A0_P2_out Link3
+19 EnhanceAlg_st1 I_C27_A0_P1_in Link37 I_C27_A0_P2_in Link38 O_C27_A0_P3_out Link30 O_C27_A0_P4_out Link31
+20 stereomux1940ns2 I_C149_A0_P3_in Link30 I_C149_A0_P4_in Link31 I_C149_A0_P5_in Link37 I_C149_A0_P6_in Link38 O_C149_A0_P1_out Link29 O_C149_A0_P2_out Link28
+21 DCBlockAlgDoublePrec3 I_C46_A2_P1_in Link2 O_C46_A2_P2_out Link6
+22 DCBlockAlgDoublePrec4 I_C46_A3_P1_in Link3 O_C46_A3_P2_out Link7
+23 ICSigma100Out2 I_C13_A0_P1_in Link6
+24 ICSigma100Out4 I_C17_A0_P1_in Link7
+25 StdRMSCompressorAlg_2ndGen1 I_C160_A0_P1_in Link29 I_C160_A0_P2_in Link28 O_C160_A0_P3_out Link10 O_C160_A0_P4_out Link11
+26 MuteNoSlewAlg1 I_C81_A0_P1_in Link10 O_C81_A0_P2_out Link0
+27 MuteNoSlewAlg2 I_C91_A0_P1_in Link11 O_C91_A0_P2_out Link1
+28 DCBlockAlgDoublePrec1 I_C46_A0_P1_in Link0 O_C46_A0_P2_out Link4
+29 DCBlockAlgDoublePrec2 I_C46_A1_P1_in Link1 O_C46_A1_P2_out Link5
+30 ICSigma100Out1 I_C11_A0_P1_in Link4
+31 ICSigma100Out3 I_C15_A0_P1_in Link5
