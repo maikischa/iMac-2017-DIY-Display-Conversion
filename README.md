@@ -122,3 +122,11 @@ The audio output of the SA1 driver board introduces noticeable noise when connec
 USB-C audio is therefore not usable yet. Any suggestions or ideas from the community are very welcome.
 
 DSP programming is currently basic, but there is plenty of room for future improvement.
+
+---
+
+## 3D printed parts
+
+- PSU + DSP https://www.thingiverse.com/thing:7266647
+- Driver Board https://www.thingiverse.com/thing:7263432 remixed from https://www.thingiverse.com/thing:7044482
+- RAM Door & Fan adapter https://www.thingiverse.com/thing:7100773
