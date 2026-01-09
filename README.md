@@ -1,6 +1,6 @@
 # iMac 27" (2017) DIY 5K Display Conversion
 
-![](images/entire-build.jpeg){width=800}
+![](images/entire-build.jpeg)
 
 This project documents my conversion of a **27-inch iMac Retina (2017)** into a standalone **5K display**, inspired by the Apple Studio Display.
 
@@ -57,8 +57,7 @@ This board supports:
 
 Another strong candidate was the **StoneTaskin R1811**, but I decided against it due to its higher price (~251 €).
 
-![StoneTaskin SA1 display driver board placed outside on a table with custom 3D-printed mounting brackets attached; the board features multiple ports and connectors, and is surrounded by tools and electronic components, suggesting an active workspace focused on assembly and modification; no visible text in the image; the scene conveys a sense of technical focus and hands-on creativity](images/SA1%20driverboard%20outside%20with%20mounting.jpeg){width=800}
----
+![StoneTaskin SA1 display driver board placed outside on a table with custom 3D-printed mounting brackets attached; the board features multiple ports and connectors, and is surrounded by tools and electronic components, suggesting an active workspace focused on assembly and modification; no visible text in the image; the scene conveys a sense of technical focus and hands-on creativity](images/SA1%20driverboard%20outside%20with%20mounting.jpeg)
 
 ### Power Button / OSD Remote
 
@@ -68,7 +67,7 @@ Another strong candidate was the **StoneTaskin R1811**, but I decided against it
 
 This keeps the exterior appearance clean and close to the original iMac design.
 
-![](images/RAM%20door%20outside.jpeg){width=800}
+![](images/RAM%20door%20outside.jpeg)
 
 ---
 
@@ -85,7 +84,7 @@ Initially, I tried the **LRS-150-24**, which fits better mechanically, but:
 
 The 200 W version solved both issues.
 
-![](images/PSU%20JAB4%20upperside.jpeg){width=800}
+![](images/PSU%20JAB4%20upperside.jpeg)
 
 ---
 
@@ -114,8 +113,8 @@ Result: usable, but not satisfying.
 The DSP significantly improved sound quality.  
 Currently, audio is transmitted via **Bluetooth**, effectively turning the monitor into a Bluetooth speaker.
 
-![](images/PSU%20JAB4%20underside.jpeg){width=800}
-![](images/sigmastudio.png){width=800}
+![](images/PSU%20JAB4%20underside.jpeg)
+![](images/sigmastudio.png)
 
 ⚠️ **Known issue:**  
 The audio output of the SA1 driver board introduces noticeable noise when connected to the DSP.  
