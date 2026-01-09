@@ -6,7 +6,16 @@ This project documents my conversion of a **27-inch iMac Retina (2017)** into a 
 
 My main goal was to achieve a **clean, professional internal and external build**. Instead of using hot glue or double-sided tape, I designed and 3D-printed brackets to securely mount all components. Many of the used parts are publicly available on Thingiverse, while some were modified or were designed from scratch.
 
-I’m open to receive suggestions, improvements, and ideas from the community.
+I’m open to suggestions, improvements, and ideas from the community.
+
+---
+
+## Table of Contents
+- [Features](#features-working)
+- [Limitations](#limitations-not-working-yet)
+- [Parts Selection](#parts-selection)
+- [3D Printed Parts](#3d-printed-parts)
+- [Links](#links)
 
 ---
 
@@ -126,6 +135,23 @@ DSP programming is currently basic, but there is plenty of room for future impro
 
 ## 3D printed parts
 
-- PSU + DSP https://www.thingiverse.com/thing:7266647
-- Driver Board https://www.thingiverse.com/thing:7263432 remixed from https://www.thingiverse.com/thing:7044482
-- RAM Door & Fan adapter https://www.thingiverse.com/thing:7100773
+- [PSU + DSP Mount on Thingiverse](https://www.thingiverse.com/thing:7266647)
+- [Driver Board mount](https://www.thingiverse.com/thing:7263432)
+- [RAM Door & Fan adapter](https://www.thingiverse.com/thing:7100773)
+
+---
+
+### Links
+
+The following resources were very helpful during this project
+- [DIY 5k Monitor - success :-) Forum](https://forums.macrumors.com/threads/diy-5k-monitor-success.2253100/)
+- [Snazzy Labs YouTube Video](https://youtu.be/5q3SdtiLAPk?si=SzVwCQARVJCXKtjY)
+- [andisolo YouTube Video](https://youtu.be/ABOH22fvRGs?si=7wV5bfCskTIwC-zU)
+
+---
+
+## Safety Notice
+
+This project involves mains voltage and modified power electronics.
+Proceed only if you are familiar with electrical safety.
+I take no responsibility for damage or injury resulting from this build.
