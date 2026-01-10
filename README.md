@@ -68,6 +68,62 @@ Another strong candidate was the **StoneTaskin R1811**, but I decided against it
 
 ![StoneTaskin SA1 display driver board placed outside on a table with custom 3D-printed mounting brackets attached; the board features multiple ports and connectors, and is surrounded by tools and electronic components, suggesting an active workspace focused on assembly and modification; no visible text in the image; the scene conveys a sense of technical focus and hands-on creativity](images/SA1%20driverboard%20outside%20with%20mounting.jpeg)
 
+---
+
+### Fan with temperature controller
+
+- **DC-Converter:** LM2596S Buck Converter DC to DC Converter
+- **Fan-Controller:** 12V 0.8A DC PWM 2-3 Wire Fan Temperature Control Speed Controller
+- **Price:** less then 5€ for both
+
+The DC converter is only needed for 24V PSU to supply 12V to the Fan controller
+
+**iMac Original Fan Connector**
+(viewed from fan side)
+
+        ┌─────────────────────┐
+        │                     │
+        │        FAN          │
+        │                     │
+        └─────────┬───────────┘
+                  │
+                  │  4-pin connector
+                  │
+              ┌───┴───┬───┬───┬───┐
+              │ Pin 1 │ 2 │ 3 │ 4 │
+              └───┬───┴───┴───┴───┘
+                  │   │   │   │
+                  │   │   │   └── PWM (Speed Control)
+                  │   │   └────── TACH (Tachometer / RPM)
+                  │   └────────── GND
+                  └────────────── +12V
+
+
+**Fan Controller Output Header**
+(top view)
+
+        ┌───────────────────┐
+        │                   │
+        │   FAN OUT (4-pin) │
+        │                   │
+        └───────┬───────────┘
+                │
+        ┌───────┴───────┐
+        │ 1 │ 2 │ 3 │ 4 │
+        └─┬─┴─┬─┴─┬─┴─┬─┘
+          │   │   │   │
+          │   │   │   └── PWM
+          │   │   └────── TACH
+          │   └────────── 12V
+          └────────────── GND
+
+[YouTube Video](https://youtu.be/_3i0bwN56d8?si=ZguNJIBiKLNuMeGS) how to programm the FanController
+[MacRumors Forum](https://forums.macrumors.com/threads/diy-5k-monitor-success.2253100/post-34302622) about temperatures inside the mac (Thank you braunico)
+
+![](images/Fan.jpg)
+
+---
+
 ### Power Button / OSD Remote
 
 - The original iMac power button is reused
