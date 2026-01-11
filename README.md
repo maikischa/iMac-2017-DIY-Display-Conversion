@@ -2,212 +2,273 @@
 
 ![](images/entire-build.jpeg)
 
-This project documents my conversion of a **27-inch iMac Retina (2017)** into a standalone **5K display**, inspired by the Apple Studio Display.
+This page documents the conversion of a **27-inch iMac Retina (2017)** into a **standalone 5K display**.
 
-My main goal was to achieve a **clean, professional internal and external build**. Instead of using hot glue or double-sided tape, I designed and 3D-printed brackets to securely mount all components. Many of the used parts are publicly available on Thingiverse, while some were modified or were designed from scratch.
 
-I’m open to suggestions, improvements, and ideas from the community.
+What is special about this iMac conversion is the usage of an DSP (Digitla sound Processor) with amplifier to drive the internal sparkers. I also created a custom bracket to hold the DSP and the PSU saefly in place.
+
+I tried to document all my conclusions and learnings as detaield as possible.
+---
+
+## Overview
+
+* Panel: iMac 27" 5K (P3)
+* Input: USB‑C + DisplayPort
+* Power Delivery: up to 90 W
+* Audio: Original iMac speakers via DSP (Bluetooth)
+* Cooling: Original iMac fan with external controller
 
 ---
 
-## Table of Contents
-- [Features](#features-working)
-- [Limitations](#limitations-not-working-yet)
-- [Parts Selection](#parts-selection)
-- [3D Printed Parts](#3d-printed-parts)
-- [Links](#links)
+## What Works / What Does Not
+
+### Working
+
+* 5K output over USB‑C and DisplayPort
+* 90 W USB‑C Power Delivery
+* Manual brightness & full OSD
+* USB 2.0 hub
+* Bluetooth audio
+
+### Not Working (Yet)
+
+* Webcam
+* Microphone
+* Clean audio over USB‑C (noise issue)
 
 ---
 
-## Features (Working)
+## Base Hardware
 
-- 5K 10-bit color display via **USB-C** and **DisplayPort**
-- **90 W USB-C Power Delivery**
-- Manual display brightness control
-- USB 2.0 hub
-- Sound via Bluetooth
-- Full OSD control
+### iMac Donor Unit
 
----
+* **Model:** iMac 27" Retina (2017)
+* **Cost:** ~200 € (used)
 
-## Limitations (Not Working Yet)
+Why this model:
 
-- Webcam
-- Microphone
-- Proper audio over USB-C (currently noisy)
+* Native 5K panel
+* P3 color gamut
+* Widely available and increasingly cheap
 
 ---
 
-## Parts Selection
-
-Below is an overview of the selected components and the reasoning behind them.  
-This does **not** claim to be the best possible setup—just what was available at a reasonable price at the time.
-
----
-
-### iMac
-
-- **Model:** iMac 27" Retina (2017)
-- **Price:** ~200 € (used)
-
-I bought a used 2017 iMac online. Prices are expected to drop further as Intel-based iMacs stop receiving macOS updates.  
-The 2017 models are well suited because they already support the **P3 color gamut**.
-
----
+## Display Electronics
 
 ### Display Driver Board
 
-- **Model:** StoneTaskin JRY-W9RQUHD-SA1
-- **Price:** ~160 €
+* **Model:** StoneTaskin JRY‑W9RQUHD‑SA1
+* **Cost:** ~160 €
 
-This board supports:
-- 5K resolution over USB-C
-- 90 W USB-C charging
+Key reasons for choosing this board:
 
-Another strong candidate was the **StoneTaskin R1811**, but I decided against it due to its higher price (~251 €).
+* Native 5K over USB‑C
+* 90 W USB‑C Power Delivery
+* Stable firmware and OSD support
 
-![StoneTaskin SA1 display driver board placed outside on a table with custom 3D-printed mounting brackets attached; the board features multiple ports and connectors, and is surrounded by tools and electronic components, suggesting an active workspace focused on assembly and modification; no visible text in the image; the scene conveys a sense of technical focus and hands-on creativity](images/SA1%20driverboard%20outside%20with%20mounting.jpeg)
+Alternative considered:
 
----
+* StoneTaskin R1811 (rejected due to price)
 
-### Fan with temperature controller
+#### Mounting
 
-- **DC-Converter:** LM2596S Buck Converter DC to DC Converter
-- **Fan-Controller:** 12V 0.8A DC PWM 2-3 Wire Fan Temperature Control Speed Controller
-- **Price:** less then 5€ for both
+* Custom 3D‑printed mount
+* Secured with screws (no adhesive)
 
-The DC converter is only needed for 24V PSU to supply 12V to the Fan controller
+**3D print:**
 
-**iMac Original Fan Connector**
-(viewed from fan side)
+* [https://www.thingiverse.com/thing:7263432](https://www.thingiverse.com/thing:7263432)
 
-        ┌─────────────────────┐
-        │                     │
-        │        FAN          │
-        │                     │
-        └─────────┬───────────┘
-                  │
-                  │  4-pin connector
-                  │
-              ┌───┴───┬───┬───┬───┐
-              │ Pin 1 │ 2 │ 3 │ 4 │
-              └───┬───┴───┴───┴───┘
-                  │   │   │   │
-                  │   │   │   └── PWM (Speed Control)
-                  │   │   └────── TACH (Tachometer / RPM)
-                  │   └────────── GND
-                  └────────────── +12V
+#### Wiring
 
+* The backlight cable needs extra catuion not to be plugged in the wronw way. In my case I had to mak sur the side of the connector with the red wire is connected with the grey wire.
 
-**Fan Controller Output Header**
-(top view)
+* The display cable is very fragile and needs extra caution during display mounting as with this DriverBoard alignment, the cable is on the shorter size.
 
-        ┌───────────────────┐
-        │                   │
-        │   FAN OUT (4-pin) │
-        │                   │
-        └───────┬───────────┘
-                │
-        ┌───────┴───────┐
-        │ 1 │ 2 │ 3 │ 4 │
-        └─┬─┴─┬─┴─┬─┴─┬─┘
-          │   │   │   │
-          │   │   │   └── PWM
-          │   │   └────── TACH
-          │   └────────── 12V
-          └────────────── GND
-
-[YouTube Video](https://youtu.be/_3i0bwN56d8?si=ZguNJIBiKLNuMeGS) how to programm the FanController
-[MacRumors Forum](https://forums.macrumors.com/threads/diy-5k-monitor-success.2253100/post-34302622) about temperatures inside the mac (Thank you braunico)
-
-![](images/Fan.jpg)
+![](images/SA1%20driverboard%20outside%20with%20mounting.jpeg)
 
 ---
 
-### Power Button / OSD Remote
-
-- The original iMac power button is reused
-- Connected to the driver board’s remote button header
-- The original OSD remote button was modified and placed inside the RAM door
-
-This keeps the exterior appearance clean and close to the original iMac design.
-
-![](images/RAM%20door%20outside.jpeg)
-
----
+## Power System
 
 ### Power Supply Unit (PSU)
 
-- **Model:** Mean Well LRS-200-24
-- **Price:** ~24 € (AliExpress)
+* **Model:** Mean Well LRS‑200‑24
+* **Output:** 24 V / 200 W
 
-The original iMac AC power connector is reused.
+Why this PSU:
 
-Initially, I tried the **LRS-150-24**, which fits better mechanically, but:
-- It shuts down under full 90 W USB-C load (overcurrent protection)
-- It produced audible buzzing noise at low load
+* Handles sustained 90 W USB‑C load
+* No shutdown under peak current
+* No audible coil noise
 
-The 200 W version solved both issues.
+Previously tested:
+
+* LRS‑150‑24 (rejected: OCP trips + noise)
+
+#### Notes
+
+* Original iMac AC inlet reused
+
+#### Mounting
+
+* Combined PSU + DSP carrier
+
+**3D print:**
+
+* [https://www.thingiverse.com/thing:7266647](https://www.thingiverse.com/thing:7266647)
 
 ![](images/PSU%20JAB4%20upperside.jpeg)
 
 ---
 
-### Speakers & Audio
+## Cooling System
 
-This is where my build differs most from other conversions.
+### Components
 
-I wanted to reuse the **original iMac speakers**, as I always liked their sound quality.
+* **Fan:** Original iMac fan
+* **Buck Converter:** LM2596S (24 V → 12 V)
+* **Fan Controller:** 12 V PWM temperature controller
 
-#### Initial Attempts
-- Direct audio output from the driver board
-- Multiple passive crossovers (AliExpress)
+Purpose of each part:
 
-Result: usable, but not satisfying.
+* PSU outputs 24 V
+* Fan requires stable 12 V
+* Controller provides temperature‑based PWM
 
-#### Final Solution
-- **Wondom JAB4 DSP & Amplifier Board**
-  - 4 × 30 W Class-D amplifier
-  - ADAU1701 DSP
-  - Bluetooth 5.0
-  - ~40 €
-- **Wondom ICP5 Programmer**
-  - Required for SigmaStudio programming
-  - ~20 €
+---
 
-The DSP significantly improved sound quality.  
-Currently, audio is transmitted via **Bluetooth**, effectively turning the monitor into a Bluetooth speaker.
+### Fan Wiring Reference
+
+#### iMac Original Fan Connector
+
+(Viewed from fan side)
+
+```
+Pin 1: +12 V
+Pin 2: GND
+Pin 3: TACH (RPM)
+Pin 4: PWM (Control)
+```
+
+#### Fan Controller Output Header
+
+(Top view)
+
+```
+Pin 1: GND
+Pin 2: +12 V
+Pin 3: TACH
+Pin 4: PWM
+```
+
+⚠️ **Important:**
+
+* Buck converter must be adjusted to **12.0 V** before connecting the fan
+
+#### Mounting
+
+* Fan adapter integrated into RAM door
+
+**3D print:**
+
+* [https://www.thingiverse.com/thing:7100773](https://www.thingiverse.com/thing:7100773)
+
+![](images/Fan.jpg)
+
+#### References
+
+* Fan controller programming: [https://youtu.be/_3i0bwN56d8](https://youtu.be/_3i0bwN56d8)
+* Internal iMac temperature discussion: [https://forums.macrumors.com/threads/diy-5k-monitor-success.2253100/post-34302622](https://forums.macrumors.com/threads/diy-5k-monitor-success.2253100/post-34302622)
+
+---
+
+## Audio System
+
+### Design Goal
+
+Reuse the **original iMac speakers** while achieving acceptable sound quality.
+
+---
+
+### Final Audio Architecture
+
+* **DSP / Amplifier:** Wondom JAB4
+
+  * ADAU1701 DSP
+  * 4 × 30 W Class‑D
+  * Bluetooth 5.0
+* **Programmer:** Wondom ICP5
+
+Audio path:
+
+```
+Bluetooth → JAB4 DSP → iMac Speakers
+```
+
+This effectively turns the display into a **Bluetooth speaker**.
 
 ![](images/PSU%20JAB4%20underside.jpeg)
 ![](images/sigmastudio.png)
 
-⚠️ **Known issue:**  
-The audio output of the SA1 driver board introduces noticeable noise when connected to the DSP.  
-USB-C audio is therefore not usable yet. Any suggestions or ideas from the community are very welcome.
+---
 
-DSP programming is currently basic, but there is plenty of room for future improvement.
+### Known Audio Issue
+
+* Analog audio output from SA1 driver board is **noisy**
+* Noise persists even with grounding attempts
+* USB‑C audio currently unusable
+
+Ideas and suggestions welcome.
 
 ---
 
-## 3D printed parts
+## External I/O & Controls
 
-- [PSU + DSP Mount on Thingiverse](https://www.thingiverse.com/thing:7266647)
-- [Driver Board mount](https://www.thingiverse.com/thing:7263432)
-- [RAM Door & Fan adapter](https://www.thingiverse.com/thing:7100773)
+### Power Button / OSD / Ports
+
+* USB‑C panel‑mount extension (30 cm)
+* DisplayPort 1.4 panel‑mount extension
+
+Mounted at the original RAM door opening.
+
+![](images/RAM%20door%20outside.jpeg)
 
 ---
 
-### Links
+## 3D Printed Parts (Summary)
 
-The following resources were very helpful during this project
-- [DIY 5k Monitor - success :-) Forum](https://forums.macrumors.com/threads/diy-5k-monitor-success.2253100/)
-- [Snazzy Labs YouTube Video](https://youtu.be/5q3SdtiLAPk?si=SzVwCQARVJCXKtjY)
-- [andisolo YouTube Video](https://youtu.be/ABOH22fvRGs?si=7wV5bfCskTIwC-zU)
+* PSU + DSP mount
+
+  * [https://www.thingiverse.com/thing:7266647](https://www.thingiverse.com/thing:7266647)
+* Display driver board mount
+
+  * [https://www.thingiverse.com/thing:7263432](https://www.thingiverse.com/thing:7263432)
+* RAM door + fan adapter
+
+  * [https://www.thingiverse.com/thing:7100773](https://www.thingiverse.com/thing:7100773)
+
+---
+
+## References & Inspiration
+
+* MacRumors DIY 5K thread
+
+  * [https://forums.macrumors.com/threads/diy-5k-monitor-success.2253100/](https://forums.macrumors.com/threads/diy-5k-monitor-success.2253100/)
+* Snazzy Labs
+
+  * [https://youtu.be/5q3SdtiLAPk](https://youtu.be/5q3SdtiLAPk)
+* andisolo
+
+  * [https://youtu.be/ABOH22fvRGs](https://youtu.be/ABOH22fvRGs)
 
 ---
 
 ## Safety Notice
 
-This project involves mains voltage and modified power electronics.
-Proceed only if you are familiar with electrical safety.
+⚠️ **Warning**
+
+This project involves **mains voltage** and modified power electronics.
+
+Proceed only if you understand electrical safety.
 I take no responsibility for damage or injury resulting from this build.
