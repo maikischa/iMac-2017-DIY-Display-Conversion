@@ -40,7 +40,7 @@ I tried to document all my conclusions and learnings as detaield as possible.
 
 ## Base Hardware
 
-### iMac Donor Unit
+### iMac
 
 * **Model:** iMac 27" Retina (2017)
 * **Cost:** ~200 € (used)
@@ -81,7 +81,7 @@ Alternative considered:
 
 #### Wiring
 
-* The backlight cable needs extra catuion not to be plugged in the wronw way. In my case I had to mak sur the side of the connector with the red wire is connected with the grey wire.
+* The backlight cable should not to be plugged in the wronw way. I had to make shure the side of the connector with the red wire is connected with the grey wire.
 
 * The display cable is very fragile and needs extra caution during display mounting as with this DriverBoard alignment, the cable is on the shorter size.
 
